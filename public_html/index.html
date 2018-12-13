@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Local Storage</title>
+        <meta charset="UTF-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+        <link rel="stylesheet" href="css/main.css" />
+        <!--<script type="text/javascript" src="js/storage.js"></script>-->
+    </head>
+    <body>
+        <header>Local / Session Storage Example</header>
+        <section id="description">
+            <ul><li>Web storage can be stated simply as <strong>improvement on cookies</strong>, providing much greater storage capacity. </li>
+                <li>Available size is <strong>5MB</strong> which considerably more space to work with than a typical 4KB cookie.</li>
+                <li>The <strong>data is not sent back to the server </strong> hence reducing traffic between client and server</li>
+                <li>There are 2 types of web storage ,
+                    <ul>
+                        <li>localStorage</li>
+                        <li>sessionStorage</li>
+                    </ul>
+                </li>
+                <li>Functions available to handle webstorage are:
+                    <ul>
+                        <li>sessionStorage / localStorage.<strong>getItem(KEY)</strong></li>
+                        <li>sessionStorage / localStorage.<strong>setItem(KEY, VALUE)</strong></li>
+                        <li>sessionStorage / localStorage.<strong>key(INDEX)</strong></li>
+                        <li>sessionStorage / localStorage.<strong>clear()</strong></li>
+                        <li>sessionStorage / localStorage.<strong>removeItem(KEY)</strong></li>
+                    </ul></li>
+                <li>The <strong>data is not sent back to the server </strong>for every HTTP request (HTML, images, JavaScript, CSS, etc) - reducing the amount of traffic between client and server.</li>
+            </ul><fieldset><legend>localStorage</legend>
+                <ul>
+                    <li>It is a web storage object</li>
+                    <li>localStorage stores data with no expiration</li>
+                </ul>
+            
+            </fieldset>
+            <fieldset><legend>sessionStorage</legend>
+                <ul>
+                    <li>It is  a web storage object and very much similar to <strong>localStorage</strong>.</li>
+                    <li>sessionStorage destroys data once the user closes browser tab.</li>
+                </ul>
+            
+            </fieldset>
+        </section>
+        <section>
+            
+            <fieldset><legend>Insert</legend>
+            <!--<form>-->
+                <input type="text" id="inputkey" placeholder="Enter Key.." />
+                <input type="text" id="inputvalue" placeholder="Enter Value.." />
+                <button id="btnInsert">Insert</button>
+            <!--</form>-->
+            </fieldset>
+            
+        </section>
+        <section><fieldset><legend>Local Storage</legend>
+                <button id="btnClear">Clear</button>
+                <div id="lsOutput"></div>
+            </fieldset>
+            
+        </section>
+        <section>
+            <fieldset><legend>Remove Data</legend>
+                <input type="text" id="removeKey" placeholder="Enter key to remove .." />
+                <button id="btnRmItem">Remove</button>
+            </fieldset>
+        </section>
+        <script type="text/javascript">
+            const inputKey = document.getElementById('inputkey');
+const inputValue = document.getElementById('inputvalue');
+const btnInsert = document.getElementById('btnInsert');
+const lsOutput = document.getElementById('lsOutput');
+const btnClear = document.getElementById('btnClear');
+const btnRmItem = document.getElementById('btnRmItem');
+btnInsert.onclick = function(){
+    if(typeof (Storage) !== undefined){
+        if(inputKey.value.trim() !== '' && inputValue.value.trim() !== ''){
+            localStorage.setItem(inputKey.value, inputValue.value);
+            location.reload();
+            //lsOutput.innerHTML += inputKey.value +' :: '+ inputValue.value +'<br />';
+        }else{
+            console.log("You are required to enter both Key and Value");
+        }
+        
+    }else{
+        console.log('Your browser doesn\'t support Storage');
+    }};
+for(let i=0; i<localStorage.length ; i++){
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        lsOutput.innerHTML += key +' :: '+ value +'<br />';
+}
+btnClear.onclick = function(){
+    if(typeof (Storage) !== undefined){
+        localStorage.clear();location.reload();
+    }else{
+        console.log('Your browser doesn\'t support Storage');
+    }
+};
+btnRmItem.onclick - function(){
+    console.log('1');
+//    const key = document.getElementById('removeKey').value.trim();
+//        localStorage.removeItem(key);
+//        location.reload();
+}
+        </script>
+    </body>
+</html>

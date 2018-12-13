@@ -1,0 +1,33 @@
+/* 
+    Created on : Dec 13, 2018, 10:44:17 AM
+    Author     : ShwetaK
+*/
+header {
+    font: bold large sans-serif;
+    padding: 10px;
+}
+fieldset {
+    border: rgba(55, 204, 199, 0.5) solid medium;
+    padding: 20px;
+    margin: 20px;
+}
+input{
+    border: black solid thin;
+    height: 15px;
+    padding: 5px;
+    margin: 5px;
+}
+button{
+    border: rgb(55, 204, 255) solid thin;
+    height: 25px;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(55, 204, 199, 0.7)
+}
+section#description{
+    padding: 10px;
+}
+section#description fieldset{
+    width: 50%; float: left;
+}
+
